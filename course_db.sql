@@ -58,3 +58,30 @@ CREATE TABLE `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `user_id` varchar(20) NOT NULL,
+  `tutor_id` varchar(20) NOT NULL,
+  `content_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `playlist`
+--
+
+CREATE TABLE `playlist` (
+  `id` varchar(20) NOT NULL,
+  `tutor_id` varchar(20) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `thumb` varchar(100) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(20) NOT NULL DEFAULT 'deactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
