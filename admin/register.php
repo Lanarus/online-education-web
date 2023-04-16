@@ -115,9 +115,28 @@ if(isset($message)){
 </section>
 
 
+<script>
 
+let darkMode = localStorage.getItem('dark-mode');
+let body = document.body;
 
-</section>
+const enabelDarkMode = () =>{
+   body.classList.add('dark');
+   localStorage.setItem('dark-mode', 'enabled');
+}
+
+const disableDarkMode = () =>{
+   body.classList.remove('dark');
+   localStorage.setItem('dark-mode', 'disabled');
+}
+
+if(darkMode === 'enabled'){
+   enabelDarkMode();
+}else{
+   disableDarkMode();
+}
+
+</script>
 
 
 </body>
