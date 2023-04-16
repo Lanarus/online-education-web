@@ -41,3 +41,20 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `content`
+--
+
+CREATE TABLE `content` (
+  `id` varchar(20) NOT NULL,
+  `tutor_id` varchar(20) NOT NULL,
+  `playlist_id` varchar(20) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `video` varchar(100) NOT NULL,
+  `thumb` varchar(100) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(20) NOT NULL DEFAULT 'deactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
