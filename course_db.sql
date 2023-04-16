@@ -29,3 +29,15 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `number` int(10) NOT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
