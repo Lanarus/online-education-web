@@ -40,7 +40,18 @@ if(isset($_POST['submit'])){
 
 </head>
 <body style="padding-left: 0;">
-
+<?php
+if(isset($message)){
+   foreach($message as $message){
+      echo '
+      <div class="message form">
+         <span>'.$message.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+   }
+}
+?>
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data" class="login">
