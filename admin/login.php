@@ -1,4 +1,28 @@
+<?php
 
+include '../components/connect.php';
+
+if(isset($_POST['submit'])){
+
+   $email = $_POST['email'];
+   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $pass = sha1($_POST['pass']);
+   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+
+   $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
+   $select_tutor->execute([$email, $pass]);
+   $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
+   
+   if($select_tutor->rowCount() > 0){
+     setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+     header('location:dashboard.php');
+   }else{
+      $message[] = 'incorrect email or password!';
+   }
+
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
