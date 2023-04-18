@@ -36,3 +36,31 @@
  *::-webkit-scrollbar-thumb{
     background-color: var(--main-color);
  }
+
+ html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+ }
+ 
+ body{
+    background-color: var(--light-bg);
+    padding-left: 30rem;
+ }
+ 
+ body.dark{
+    --white:#222;
+    --black:#fff;
+    --light-color:#aaa;
+    --light-bg:#333;
+    --border:.1rem solid rgba(255,255,255,.2);
+ }
+ 
+ body.active{
+    padding-left: 0;
+ }
+ 
+ section{
+    padding:2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+ }
