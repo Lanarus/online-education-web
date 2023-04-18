@@ -94,3 +94,16 @@
 .inline-delete-btn{
    display: inline-block;
 }
+
+
+
+.message{
+    position: sticky;
+    top:0;
+    background-color: var(--light-bg);
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    justify-content: space-between;
+ }
