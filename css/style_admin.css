@@ -65,3 +65,19 @@
     max-width: 1200px;
     margin: 0 auto;
  }
+
+ .btn,
+.option-btn,
+.delete-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+   border-radius: .5rem;
+   padding: 1rem 3rem;
+   font-size: 1.8rem;
+   color: #fff;
+   margin-top: 1rem;
+   text-transform: capitalize;
+   cursor: pointer;
+   text-align: center;
+}
