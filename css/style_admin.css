@@ -131,3 +131,27 @@
  .message i:hover{
     transform: rotate(90deg);
  }
+
+
+
+
+ .form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+ }
+ 
+ .form-container form{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+ }
+ 
+ .form-container .login{
+    width: 50rem;
+ }
+ 
+ .form-container .register{
+    width: 80rem;
+ }
