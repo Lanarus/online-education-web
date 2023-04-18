@@ -10,3 +10,11 @@
    --light-bg:#eee;
    --border:.1rem solid rgba(0,0,0,.2);
 }
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+ }
