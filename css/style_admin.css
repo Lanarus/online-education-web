@@ -81,3 +81,16 @@
    cursor: pointer;
    text-align: center;
 }
+
+.btn,
+.option-btn,
+.delete-btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+   display: inline-block;
+}
