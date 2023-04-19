@@ -132,7 +132,27 @@
     transform: rotate(90deg);
  }
 
-
+ .header{
+    background-color: var(--white);
+    border-bottom: var(--border);
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+ }
+ 
+ .header .flex{
+    padding: 1.5rem 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+ 
+ .header .flex .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: bolder;
+ }
 
 
  .form-container{
