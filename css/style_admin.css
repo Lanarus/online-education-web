@@ -131,7 +131,14 @@
  .message i:hover{
     transform: rotate(90deg);
  }
-
+ .heading{
+    padding-bottom: 1.8rem;
+    border-bottom: var(--border);
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+ }
  .header{
     background-color: var(--white);
     border-bottom: var(--border);
