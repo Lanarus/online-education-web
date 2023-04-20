@@ -56,7 +56,29 @@
    <div class="close-side-bar">
       <i class="fas fa-times"></i>
    </div>
-
+   <div class="profile">
+        <?php
+            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_profile->execute([$user_id]);
+            if($select_profile->rowCount() > 0){
+            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+        ?>
+        <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
+        <h3><?= $fetch_profile['name']; ?></h3>
+        <span>student</span>
+        <a href="profile.php" class="btn">view profile</a>
+        <?php
+            }else{
+        ?>
+        <h3>please login or register</h3>
+        <div class="flex-btn" style="padding-top: .5rem;">
+            <a href="login.php" class="option-btn">login</a>
+            <a href="register.php" class="option-btn">register</a>
+        </div>
+        <?php
+            }
+        ?>
+    </div>
 
 
    <nav class="navbar">
