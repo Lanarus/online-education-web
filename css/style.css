@@ -176,3 +176,38 @@
 #search-btn{
    display: none;
 }
+
+.header .flex .profile{
+   position: absolute;
+   top: 120%; right: 2rem;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+   text-align: center;
+   width: 30rem;
+   transform: scale(0);
+   transform-origin: top right;
+}
+
+.header .flex .profile.active{
+   transform: scale(1);
+   transition: .2s linear;
+}
+
+.header .flex .profile img{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: .5rem;
+}
+
+.header .flex .profile h3{
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.header .flex .profile span{
+   color: var(--light-color);
+   font-size: 1.6rem;
+}
