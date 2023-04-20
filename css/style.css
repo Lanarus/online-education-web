@@ -126,3 +126,31 @@
    color: var(--black);
    font-weight: bolder;
 }
+
+.header .flex .search-form{
+   width: 50rem;
+   border-radius: .5rem;
+   display: flex;
+   align-items: center;
+   gap: 2rem;
+   padding: 1.5rem 2rem;
+   background-color: var(--light-bg);
+}
+
+.header .flex .search-form input{
+   width: 100%;
+   background:none;
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.header .flex .search-form button{
+   font-size: 2rem;
+   color: var(--black);
+   cursor: pointer;
+   background: none;
+}
+
+.header .flex .search-form button:hover{
+   color: var(--main-color);
+}
