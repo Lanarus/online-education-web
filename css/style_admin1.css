@@ -508,3 +508,26 @@
    padding: 2rem;
    overflow-x:hidden;
 }
+.playlists .box-container .box .thumb{
+   height: 20rem;
+   position: relative;
+   margin: 1.5rem 0;
+}
+
+.playlists .box-container .box .flex{
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   justify-content: space-between;
+}
+
+.playlists .box-container .box .flex i{
+   font-size: 1.5rem;
+   color: var(--main-color);
+   margin-right:.7rem;
+}
+
+.playlists .box-container .box .flex span{
+   color: var(--light-color);
+   font-size: 1.7rem;
+}
