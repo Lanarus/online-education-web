@@ -25,7 +25,32 @@
    <h1 class="heading">profile details</h1>
 
    <div class="details">
-
+        <div class="tutor">
+            <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
+            <h3><?= $fetch_profile['name']; ?></h3>
+            <span><?= $fetch_profile['profession']; ?></span>
+            <a href="update.php" class="inline-btn">update profile</a>
+        </div>
+        <div class="box">
+            <span><?= $total_playlis; ?></span>
+            <p>total playlist</p>
+            <a href="playlists.php" class="btn">view playlists</a>
+        </div>
+        <div class="box">
+            <span><?= $total_content; ?></span>
+            <p>total videos</p>
+            <a href="contents.php" class="btn">view contents</a>
+        </div>
+        <div class="box">
+            <span><?= $total_likes; ?></span>
+            <p>total likes</p>
+            <a href="contents.php" class="btn">view contents</a>
+        </div>
+        <div class="box">
+            <span><?= $total_comments; ?></span>
+            <p>total comments</p>
+            <a href="comments.php" class="btn">view comments</a>
+        </div>
    </div>
 
 </section>
