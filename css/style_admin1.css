@@ -95,7 +95,20 @@
    display: inline-block;
 }
 
+.btn,
+.inline-btn{
+   background-color: var(--main-color);
+}
 
+.option-btn,
+.inline-option-btn{
+   background-color: var(--oragen);
+}
+
+.delete-btn,
+.inline-delete-btn{
+   background-color: var(--red);
+}
 
 .message{
     position: sticky;
