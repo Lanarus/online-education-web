@@ -159,6 +159,18 @@
  .message i:hover{
     transform: rotate(90deg);
  }
+
+ .empty{
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 1.5rem;
+   text-align: center;
+   width: 100%;
+   font-size: 2rem;
+   color: var(--red);
+}
+
+
  .heading{
     padding-bottom: 1.8rem;
     border-bottom: var(--border);
