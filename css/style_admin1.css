@@ -584,3 +584,20 @@
    gap: 1.5rem;
    margin-bottom: 2rem;
 }
+.comments .show-comments .user img{
+   height: 5rem;
+   width: 5rem;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.comments .show-comments .user h3{
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+}
+
+.comments .show-comments .user span{
+   color: var(--light-color);
+   font-size: 1.5rem;
+}
