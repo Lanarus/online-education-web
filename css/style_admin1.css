@@ -570,6 +570,27 @@
 
 
 
+
+
+.contents .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   align-items: flex-start;
+   justify-content: center;
+   gap: 1.5rem;
+}
+
+.contents .box-container .box{
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+   overflow-x: hidden;
+}
+
+
+
+
+
 .comments .show-comments{
    background-color: var(--white);
    border-radius: .5rem;
