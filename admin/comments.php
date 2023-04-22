@@ -24,9 +24,15 @@
 
    <h1 class="heading">user comments</h1>
 
-   
    <div class="show-comments">
-
+        <div class="box" style="<?php if($fetch_comment['tutor_id'] == $tutor_id){echo 'order:-1;';} ?>">
+            <div class="content"><span><?= $fetch_comment['date']; ?></span><p> - <?= $fetch_content['title']; ?> - </p><a href="view_content.php?get_id=<?= $fetch_content['id']; ?>">view content</a></div>
+            <p class="text"><?= $fetch_comment['comment']; ?></p>
+            <form action="" method="post">
+                <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
+                <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">delete comment</button>
+            </form>
+        </div>
    </div>
    
 </section>
