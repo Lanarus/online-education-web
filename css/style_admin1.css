@@ -585,7 +585,20 @@
 .video-form form p span{
    color:var(--red);
 }
+.video-form form .box{
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
 
+.video-form form textarea{
+   height: 20rem;
+   resize: none;
+}
 
 
 
