@@ -493,6 +493,24 @@
    padding: .5rem 0;
 }
 
+.playlist-form form{
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+   padding-top: 1rem;
+   max-width: 50rem;
+   margin: 0 auto;
+}
+
+.playlist-form form p{
+   font-size: 1.7rem;
+   color: var(--light-color);
+   padding-top: 1rem;
+}
+
+.playlist-form form p span{
+   color: var(--red);
+}
 
 .playlists .box-container{
    display: grid;
