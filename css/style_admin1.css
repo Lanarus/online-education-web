@@ -525,6 +525,18 @@
    height: 20rem;
    resize: none;
 }
+.playlist-form form .thumb{
+   height: 22rem;
+   margin-top: 1rem;
+   position: relative;
+}
+
+.playlist-form form .thumb img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   border-radius: .5rem;
+}
 
 
 
