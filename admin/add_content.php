@@ -37,7 +37,21 @@
       <p>video playlist <span>*</span></p>
       <select name="playlist" class="box" required>
            <option value="" disabled selected>--select playlist</option>
-         
+           <?php
+            $select_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
+            $select_playlists->execute([$tutor_id]);
+            if($select_playlists->rowCount() > 0){
+                while($fetch_playlist = $select_playlists->fetch(PDO::FETCH_ASSOC)){
+            ?>
+            <option value="<?= $fetch_playlist['id']; ?>"><?= $fetch_playlist['title']; ?></option>
+            <?php
+                }
+            ?>
+            <?php
+            }else{
+                echo '<option value="" disabled>no playlist created yet!</option>';
+            }
+            ?>
         
        </select>
       <p>select thumbnail <span>*</span></p>
