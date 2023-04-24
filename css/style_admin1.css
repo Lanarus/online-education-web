@@ -511,6 +511,24 @@
 .playlist-form form p span{
    color: var(--red);
 }
+.playlist-form form .box{
+   margin: 1rem 0;
+   border-radius: .5rem;
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   background: var(--light-bg);
+   width: 100%;
+}
+
+.playlist-form form textarea{
+   height: 20rem;
+   resize: none;
+}
+
+
+
+
 
 .playlists .box-container{
    display: grid;
