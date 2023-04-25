@@ -23,7 +23,21 @@
 
 
 <section class="view-content">
+<?php
+      $select_content = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND tutor_id = ?");
+      $select_content->execute([$get_id, $tutor_id]);
+      if($select_content->rowCount() > 0){
+         while($fetch_content = $select_content->fetch(PDO::FETCH_ASSOC)){
+            $video_id = $fetch_content['id'];
 
+            $count_likes = $conn->prepare("SELECT * FROM `likes` WHERE tutor_id = ? AND content_id = ?");
+            $count_likes->execute([$tutor_id, $video_id]);
+            $total_likes = $count_likes->rowCount();
+
+            $count_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ? AND content_id = ?");
+            $count_comments->execute([$tutor_id, $video_id]);
+            $total_comments = $count_comments->rowCount();
+   ?>
 <div class="container">
       <video src="../uploaded_files/<?= $fetch_content['video']; ?>" autoplay controls poster="../uploaded_files/<?= $fetch_content['thumb']; ?>" class="video"></video>
       <div class="date"><i class="fas fa-calendar"></i><span><?= $fetch_content['date']; ?></span></div>
@@ -41,7 +55,13 @@
          </div>
       </form>
    </div>
-
+   <?php
+    }
+   }else{
+      echo '<p class="empty">no contents added yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
+   }
+      
+   ?>
 </section>
 
 <section class="comments">
