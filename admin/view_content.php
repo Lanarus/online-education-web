@@ -47,6 +47,14 @@ if(isset($_POST['delete_comment'])){
 
     $verify_comment = $conn->prepare("SELECT * FROM `comments` WHERE id = ?");
     $verify_comment->execute([$delete_id]);
+
+    if($verify_comment->rowCount() > 0){
+        $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
+        $delete_comment->execute([$delete_id]);
+        $message[] = 'comment deleted successfully!';
+     }else{
+        $message[] = 'comment already deleted!';
+     }
 }
 
 ?>
