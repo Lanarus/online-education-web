@@ -70,6 +70,15 @@
 
    
    <div class="show-comments">
+        <?php
+         $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE content_id = ?");
+         $select_comments->execute([$get_id]);
+         if($select_comments->rowCount() > 0){
+            while($fetch_comment = $select_comments->fetch(PDO::FETCH_ASSOC)){   
+               $select_commentor = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+               $select_commentor->execute([$fetch_comment['user_id']]);
+               $fetch_commentor = $select_commentor->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="box">
             <div class="user">
                 <img src="../uploaded_files/<?= $fetch_commentor['image']; ?>" alt="">
@@ -84,6 +93,12 @@
                 <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">delete comment</button>
             </form>
       </div>
+      <?php
+         }
+        }else{
+         echo '<p class="empty">no comments added yet!</p>';
+        }
+        ?>
    </div>
    
 </section>
