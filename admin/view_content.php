@@ -16,7 +16,18 @@ if(isset($_GET['get_id'])){
    header('location:contents.php');
 }
 
+if(isset($_POST['delete_video'])){
 
+    $delete_id = $_POST['video_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+ 
+    $delete_video_thumb = $conn->prepare("SELECT thumb FROM `content` WHERE id = ? LIMIT 1");
+    $delete_video_thumb->execute([$delete_id]);
+    $fetch_thumb = $delete_video_thumb->fetch(PDO::FETCH_ASSOC);
+    unlink('../uploaded_files/'.$fetch_thumb['thumb']);
+
+
+}
 
 
 ?>
