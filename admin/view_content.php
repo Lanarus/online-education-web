@@ -24,7 +24,23 @@
 
 <section class="view-content">
 
-
+<div class="container">
+      <video src="../uploaded_files/<?= $fetch_content['video']; ?>" autoplay controls poster="../uploaded_files/<?= $fetch_content['thumb']; ?>" class="video"></video>
+      <div class="date"><i class="fas fa-calendar"></i><span><?= $fetch_content['date']; ?></span></div>
+      <h3 class="title"><?= $fetch_content['title']; ?></h3>
+      <div class="flex">
+         <div><i class="fas fa-heart"></i><span><?= $total_likes; ?></span></div>
+         <div><i class="fas fa-comment"></i><span><?= $total_comments; ?></span></div>
+      </div>
+      <div class="description"><?= $fetch_content['description']; ?></div>
+      <form action="" method="post">
+         <div class="flex-btn">
+            <input type="hidden" name="video_id" value="<?= $video_id; ?>">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">update</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+         </div>
+      </form>
+   </div>
 
 </section>
 
