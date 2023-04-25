@@ -40,7 +40,12 @@ if(isset($_POST['delete_video'])){
     $delete_content->execute([$delete_id]);
     header('location:contents.php');
 }
+if(isset($_POST['delete_comment'])){
 
+    $delete_id = $_POST['comment_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+
+}
 
 ?>
 
