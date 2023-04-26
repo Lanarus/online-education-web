@@ -720,6 +720,11 @@
    text-overflow: ellipsis;
    overflow-x: hidden;
 }
+.view-content .container{
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+}
 
 
 
