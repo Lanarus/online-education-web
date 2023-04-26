@@ -761,7 +761,11 @@
    padding-bottom: 1rem;
    margin-top: 1rem;
 }
-
+.view-content .container .flex div{
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding: .5rem 1rem;
+}
 
 
 .comments .show-comments{
