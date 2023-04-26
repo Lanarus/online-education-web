@@ -713,6 +713,13 @@
    color: var(--light-color);
    font-size: 1.7rem;
 }
+.contents .box-container .box .title{
+   font-size: 2rem;
+   color: var(--black);
+   line-height: 1.5;
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+}
 
 
 
