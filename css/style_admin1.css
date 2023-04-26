@@ -766,6 +766,14 @@
    border-radius: .5rem;
    padding: .5rem 1rem;
 }
+.view-content .container .flex i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
+
+.view-content .container .flex span{
+   color: var(--light-color);
+}
 
 
 .comments .show-comments{
