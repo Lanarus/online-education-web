@@ -774,7 +774,12 @@
 .view-content .container .flex span{
    color: var(--light-color);
 }
-
+.view-content .container .description{
+   padding: .5rem 0;
+   line-height: 1.7;
+   font-size: 1.7rem;
+   color: var(--light-color);
+}
 
 .comments .show-comments{
    background-color: var(--white);
