@@ -732,6 +732,15 @@
    background: #000;
    height: 50rem;
 }
+.view-content .container .date{
+   padding:1rem 0;
+   font-size: 1.7rem;
+}
+
+.view-content .container .date i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
 
 
 
