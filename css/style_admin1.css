@@ -750,7 +750,17 @@
    color: var(--black);
    padding: .5rem 0;
 }
-
+.view-content .container .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1.5rem;
+   font-size: 1.8rem;
+   border-top: var(--border);
+   padding-top: 1.5rem;
+   padding-bottom: 1rem;
+   margin-top: 1rem;
+}
 
 
 
