@@ -725,6 +725,13 @@
    border-radius: .5rem;
    padding: 2rem;
 }
+.view-content .container .video{
+   width: 100%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+   background: #000;
+   height: 50rem;
+}
 
 
 
