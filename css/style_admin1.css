@@ -703,6 +703,16 @@
    gap: 1.5rem;
    margin-bottom: .5rem;
 }
+.contents .box-container .box .flex i{
+   font-size: 1.5rem;
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.contents .box-container .box .flex span{
+   color: var(--light-color);
+   font-size: 1.7rem;
+}
 
 
 
