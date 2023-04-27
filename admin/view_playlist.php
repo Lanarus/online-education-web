@@ -1,4 +1,24 @@
+<?php
 
+include '../components/connect.php';
+
+if(isset($_COOKIE['tutor_id'])){
+   $tutor_id = $_COOKIE['tutor_id'];
+}else{
+   $tutor_id = '';
+   header('location:login.php');
+}
+
+if(isset($_GET['get_id'])){
+   $get_id = $_GET['get_id'];
+}else{
+   $get_id = '';
+   header('location:playlist.php');
+}
+
+
+
+?>
 
 
 <!DOCTYPE html>
