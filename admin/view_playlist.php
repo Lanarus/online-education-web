@@ -84,13 +84,14 @@
             </form>
             <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">watch video</a>
         </div>
-    </div>
-    <?php
-         }
-      }else{
-         echo '<p class="empty">no videos added yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
-      }
-   ?>
+    
+        <?php
+            }
+        }else{
+             echo '<p class="empty">no videos added yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
+        }
+        ?>
+   </div>
 </section>
 
 
