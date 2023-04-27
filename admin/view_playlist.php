@@ -35,6 +35,12 @@ if(isset($_POST['delete_video'])){
     $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
     $verify_video = $conn->prepare("SELECT * FROM `content` WHERE id = ? LIMIT 1");
     $verify_video->execute([$delete_id]);
+    if($verify_video->rowCount() > 0){
+        $delete_video_thumb = $conn->prepare("SELECT * FROM `content` WHERE id = ? LIMIT 1");
+        $delete_video_thumb->execute([$delete_id]);
+        $fetch_thumb = $delete_video_thumb->fetch(PDO::FETCH_ASSOC);
+        unlink('../uploaded_files/'.$fetch_thumb['thumb']);
+        $delete_video = $conn->prepare("SELECT * FROM `content` WHERE id = ? LIMIT 1");
 
 }
 
