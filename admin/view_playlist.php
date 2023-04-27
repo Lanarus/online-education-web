@@ -23,6 +23,17 @@
 <section class="playlist-details">
 
    <h1 class="heading">playlist details</h1>
+
+   <?php
+      $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? AND tutor_id = ?");
+      $select_playlist->execute([$get_id, $tutor_id]);
+      if($select_playlist->rowCount() > 0){
+         while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
+            $playlist_id = $fetch_playlist['id'];
+            $count_videos = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+            $count_videos->execute([$playlist_id]);
+            $total_videos = $count_videos->rowCount();
+   ?>
    <div class="row">
       <div class="thumb">
          <span><?= $total_videos; ?></span>
@@ -39,7 +50,12 @@
          </form>
       </div>
    </div>
-
+   <?php
+         }
+      }else{
+         echo '<p class="empty">no playlist found!</p>';
+      }
+    ?>
 </section>
 
 <section class="contents">
