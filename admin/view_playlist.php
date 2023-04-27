@@ -63,7 +63,13 @@
    <h1 class="heading">playlist videos</h1>
 
    <div class="box-container">   
-
+   <?php
+      $select_videos = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ? AND playlist_id = ?");
+      $select_videos->execute([$tutor_id, $playlist_id]);
+      if($select_videos->rowCount() > 0){
+         while($fecth_videos = $select_videos->fetch(PDO::FETCH_ASSOC)){ 
+            $video_id = $fecth_videos['id'];
+   ?>
         <div class="box">
             <div class="flex">
                 <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fecth_videos['status']; ?></span></div>
@@ -79,7 +85,12 @@
             <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">watch video</a>
         </div>
     </div>
-
+    <?php
+         }
+      }else{
+         echo '<p class="empty">no videos added yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
+      }
+   ?>
 </section>
 
 
