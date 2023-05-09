@@ -722,6 +722,13 @@
    color: var(--black);
    padding-bottom: .5rem;
 }
+.playlist-details .row .details .description{
+   padding: .5rem 0;
+   font-size: 1.7rem;
+   color: var(--light-color);
+   line-height: 2;
+   white-space: pre-line;
+}
 
 .contents .box-container{
    display: grid;
