@@ -692,7 +692,15 @@
    border-radius: .5rem;
    object-fit: cover;
 }
-
+.playlist-details .row .thumb span{
+   background-color: rgba(0,0,0,.3);
+   color: #fff;
+   border-radius: .5rem;
+   position: absolute;
+   top: 1rem; left: 1rem;
+   padding: .5rem 1.5rem;
+   font-size: 2rem;
+}
 
 .contents .box-container{
    display: grid;
