@@ -717,6 +717,11 @@
 .playlist-details .row .details .date span{
    color: var(--light-color);
 }
+.playlist-details .row .details .title{
+   font-size: 2rem;
+   color: var(--black);
+   padding-bottom: .5rem;
+}
 
 .contents .box-container{
    display: grid;
