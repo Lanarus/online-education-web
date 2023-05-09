@@ -671,7 +671,15 @@
    margin: .5rem 0;
 }
 
-
+.playlist-details .row{
+   display: flex;
+   gap: 2.5rem;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+}
 
 
 .contents .box-container{
