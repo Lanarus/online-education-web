@@ -67,7 +67,24 @@
    <h1 class="heading">playlists</h1>
 
    <div class="box-container">
-
+        <div class="box">
+            <div class="flex">
+                <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fetch_playlist['status']; ?></span></div>
+                <div><i class="fas fa-calendar"></i><span><?= $fetch_playlist['date']; ?></span></div>
+            </div>
+            <div class="thumb">
+                <span><?= $total_videos; ?></span>
+                <img src="../uploaded_files/<?= $fetch_playlist['thumb']; ?>" alt="">
+            </div>
+            <h3 class="title"><?= $fetch_playlist['title']; ?></h3>
+            <p class="description"><?= $fetch_playlist['description']; ?></p>
+            <form action="" method="post" class="flex-btn">
+                <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
+                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
+                <input type="submit" value="delete_playlist" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
+            </form>
+             <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
+       </div>
    </div>
 
 </section>
