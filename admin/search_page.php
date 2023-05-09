@@ -26,7 +26,15 @@
    <h1 class="heading">contents</h1>
 
    <div class="box-container">
-
+   <?php
+      if(isset($_POST['search']) or isset($_POST['search_btn'])){
+      $search = $_POST['search'];
+      $select_videos = $conn->prepare("SELECT * FROM `content` WHERE title LIKE '%{$search}%' AND tutor_id = ? ORDER BY date DESC");
+      $select_videos->execute([$tutor_id]);
+      if($select_videos->rowCount() > 0){
+         while($fecth_videos = $select_videos->fetch(PDO::FETCH_ASSOC)){ 
+            $video_id = $fecth_videos['id'];
+   ?>
         <div class="box">
             <div class="flex">
                 <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fecth_videos['status']; ?></span></div>
@@ -41,7 +49,15 @@
             </form>
             <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">view content</a>
       </div>
-
+    <?php
+         }
+      }else{
+         echo '<p class="empty">no contents founds!</p>';
+      }
+    }else{
+        echo '<p class="empty">please search something!</p>';
+    }
+    ?>
    </div>
 
 </section>
