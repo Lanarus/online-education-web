@@ -33,9 +33,18 @@ if(isset($_POST['delete_video'])){
      }else{
         $message[] = 'video already deleted!';
      }
-
-
 }
+
+if(isset($_POST['delete_playlist'])){
+    $delete_id = $_POST['playlist_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+ 
+    $verify_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? AND tutor_id = ? LIMIT 1");
+    $verify_playlist->execute([$delete_id, $tutor_id]);
+ 
+    if($verify_playlist->rowCount() > 0){
+
+    }
 
 
 ?>
