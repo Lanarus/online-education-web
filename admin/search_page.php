@@ -67,6 +67,18 @@
    <h1 class="heading">playlists</h1>
 
    <div class="box-container">
+   <?php
+      if(isset($_POST['search']) or isset($_POST['search_btn'])){
+         $search = $_POST['search'];
+         $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE title LIKE '%{$search}%' AND tutor_id = ? ORDER BY date DESC");
+         $select_playlist->execute([$tutor_id]);
+         if($select_playlist->rowCount() > 0){
+         while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
+            $playlist_id = $fetch_playlist['id'];
+            $count_videos = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+            $count_videos->execute([$playlist_id]);
+            $total_videos = $count_videos->rowCount();
+    ?>
         <div class="box">
             <div class="flex">
                 <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fetch_playlist['status']; ?></span></div>
@@ -85,6 +97,14 @@
             </form>
              <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
        </div>
+       <?php
+            } 
+        }else{
+            echo '<p class="empty">no playlists found!</p>';
+        }}else{
+            echo '<p class="empty">please search something!</p>';
+        }
+        ?>
    </div>
 
 </section>
