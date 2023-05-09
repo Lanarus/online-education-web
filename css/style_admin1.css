@@ -709,6 +709,14 @@
    font-size: 1.5rem;
    margin: 1rem 0;
 }
+.playlist-details .row .details .date i{
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.playlist-details .row .details .date span{
+   color: var(--light-color);
+}
 
 .contents .box-container{
    display: grid;
