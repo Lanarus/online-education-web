@@ -1,4 +1,25 @@
+<?php
 
+include '../components/connect.php';
+
+if(isset($_COOKIE['tutor_id'])){
+   $tutor_id = $_COOKIE['tutor_id'];
+}else{
+   $tutor_id = '';
+   header('location:login.php');
+}
+
+if(isset($_POST['delete_video'])){
+    $delete_id = $_POST['video_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+    $verify_video = $conn->prepare("SELECT * FROM `content` WHERE id = ? LIMIT 1");
+    $verify_video->execute([$delete_id]);
+
+
+}
+
+
+?>
 
 
 
