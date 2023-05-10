@@ -58,8 +58,29 @@ if(isset($_POST['update'])){
           }
        }
     }
+    $old_video = $_POST['old_video'];
+    $old_video = filter_var($old_video, FILTER_SANITIZE_STRING);
+    $video = $_FILES['video']['name'];
+    $video = filter_var($video, FILTER_SANITIZE_STRING);
+    $video_ext = pathinfo($video, PATHINFO_EXTENSION);
+    $rename_video = unique_id().'.'.$video_ext;
+    $video_tmp_name = $_FILES['video']['tmp_name'];
+    $video_folder = '../uploaded_files/'.$rename_video;
+ 
+    if(!empty($video)){
+       $update_video = $conn->prepare("UPDATE `content` SET video = ? WHERE id = ?");
+       $update_video->execute([$rename_video, $video_id]);
+       move_uploaded_file($video_tmp_name, $video_folder);
+       if($old_video != '' AND $old_video != $rename_video){
+          unlink('../uploaded_files/'.$old_video);
+       }
+    }
+ 
+    $message[] = 'content updated!';
+ 
+ }
 
-}
+
 ?>
 
 
