@@ -175,6 +175,13 @@ if(isset($_POST['delete_playlist'])){
 <?php include '../components/footer.php'; ?>
 
 
+<script src="../js/admin_script.js"></script>
+
+<script>
+   document.querySelectorAll('.playlists .box-container .box .description').forEach(content => {
+      if(content.innerHTML.length > 100) content.innerHTML = content.innerHTML.slice(0, 100);
+   });
+</script>
 
 </body>
 </html>
