@@ -79,7 +79,31 @@ if(isset($_POST['update'])){
     $message[] = 'content updated!';
  
  }
+ if(isset($_POST['delete_video'])){
 
+    $delete_id = $_POST['video_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+ 
+    $delete_video_thumb = $conn->prepare("SELECT thumb FROM `content` WHERE id = ? LIMIT 1");
+    $delete_video_thumb->execute([$delete_id]);
+    $fetch_thumb = $delete_video_thumb->fetch(PDO::FETCH_ASSOC);
+    unlink('../uploaded_files/'.$fetch_thumb['thumb']);
+ 
+    $delete_video = $conn->prepare("SELECT video FROM `content` WHERE id = ? LIMIT 1");
+    $delete_video->execute([$delete_id]);
+    $fetch_video = $delete_video->fetch(PDO::FETCH_ASSOC);
+    unlink('../uploaded_files/'.$fetch_video['video']);
+ 
+    $delete_likes = $conn->prepare("DELETE FROM `likes` WHERE content_id = ?");
+    $delete_likes->execute([$delete_id]);
+    $delete_comments = $conn->prepare("DELETE FROM `comments` WHERE content_id = ?");
+    $delete_comments->execute([$delete_id]);
+ 
+    $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
+    $delete_content->execute([$delete_id]);
+    header('location:contents.php');
+     
+ }
 
 ?>
 
