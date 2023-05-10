@@ -57,6 +57,13 @@
          }
          ?>
       </select>
+      img src="../uploaded_files/<?= $fecth_videos['thumb']; ?>" alt="">
+      <p>update thumbnail</p>
+      <input type="file" name="thumb" accept="image/*" class="box">
+      <video src="../uploaded_files/<?= $fecth_videos['video']; ?>" controls></video>
+      <p>update video</p>
+      <input type="file" name="video" accept="video/*" class="box">
+      <input type="submit" value="update content" name="update" class="btn">
 
 
    </form>
