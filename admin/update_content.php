@@ -24,6 +24,19 @@
 
    <h1 class="heading">update content</h1>
 
+   <form action="" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="video_id" value="<?= $fecth_videos['id']; ?>">
+      <input type="hidden" name="old_thumb" value="<?= $fecth_videos['thumb']; ?>">
+      <input type="hidden" name="old_video" value="<?= $fecth_videos['video']; ?>">
+      <p>update status <span>*</span></p>
+      <select name="status" class="box" required>
+         <option value="<?= $fecth_videos['status']; ?>" selected><?= $fecth_videos['status']; ?></option>
+         <option value="active">active</option>
+         <option value="deactive">deactive</option>
+      </select>
+
+
+   </form>
 
    </section>
 
