@@ -16,6 +16,18 @@ if(isset($_GET['get_id'])){
    header('location:dashboard.php');
 }
 
+if(isset($_POST['update'])){
+
+    $video_id = $_POST['video_id'];
+    $video_id = filter_var($video_id, FILTER_SANITIZE_STRING);
+    $status = $_POST['status'];
+    $status = filter_var($status, FILTER_SANITIZE_STRING);
+    $title = $_POST['title'];
+    $title = filter_var($title, FILTER_SANITIZE_STRING);
+    $description = $_POST['description'];
+    $description = filter_var($description, FILTER_SANITIZE_STRING);
+    $playlist = $_POST['playlist'];
+    $playlist = filter_var($playlist, FILTER_SANITIZE_STRING);
 ?>
 
 
