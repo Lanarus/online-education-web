@@ -23,7 +23,13 @@
 <section class="video-form">
 
    <h1 class="heading">update content</h1>
-
+   <?php
+      $select_videos = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND tutor_id = ?");
+      $select_videos->execute([$get_id, $tutor_id]);
+      if($select_videos->rowCount() > 0){
+         while($fecth_videos = $select_videos->fetch(PDO::FETCH_ASSOC)){ 
+            $video_id = $fecth_videos['id'];
+   ?>
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="video_id" value="<?= $fecth_videos['id']; ?>">
       <input type="hidden" name="old_thumb" value="<?= $fecth_videos['thumb']; ?>">
@@ -64,10 +70,18 @@
       <p>update video</p>
       <input type="file" name="video" accept="video/*" class="box">
       <input type="submit" value="update content" name="update" class="btn">
-
+      <div class="flex-btn">
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="option-btn">view content</a>
+         <input type="submit" value="delete content" name="delete_video" class="delete-btn">
+      </div>
 
    </form>
-
+   <?php
+         }
+      }else{
+         echo '<p class="empty">video not found! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
+      }
+   ?>
    </section>
 
 
