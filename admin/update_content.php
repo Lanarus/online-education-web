@@ -28,6 +28,17 @@ if(isset($_POST['update'])){
     $description = filter_var($description, FILTER_SANITIZE_STRING);
     $playlist = $_POST['playlist'];
     $playlist = filter_var($playlist, FILTER_SANITIZE_STRING);
+
+    $update_content = $conn->prepare("UPDATE `content` SET title = ?, description = ?, status = ? WHERE id = ?");
+    $update_content->execute([$title, $description, $status, $video_id]);
+ 
+    if(!empty($playlist)){
+       $update_playlist = $conn->prepare("UPDATE `content` SET playlist_id = ? WHERE id = ?");
+       $update_playlist->execute([$playlist, $video_id]);
+    }
+
+
+}
 ?>
 
 
