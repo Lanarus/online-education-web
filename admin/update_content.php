@@ -36,7 +36,28 @@ if(isset($_POST['update'])){
        $update_playlist = $conn->prepare("UPDATE `content` SET playlist_id = ? WHERE id = ?");
        $update_playlist->execute([$playlist, $video_id]);
     }
-
+    $old_thumb = $_POST['old_thumb'];
+    $old_thumb = filter_var($old_thumb, FILTER_SANITIZE_STRING);
+    $thumb = $_FILES['thumb']['name'];
+    $thumb = filter_var($thumb, FILTER_SANITIZE_STRING);
+    $thumb_ext = pathinfo($thumb, PATHINFO_EXTENSION);
+    $rename_thumb = unique_id().'.'.$thumb_ext;
+    $thumb_size = $_FILES['thumb']['size'];
+    $thumb_tmp_name = $_FILES['thumb']['tmp_name'];
+    $thumb_folder = '../uploaded_files/'.$rename_thumb;
+ 
+    if(!empty($thumb)){
+       if($thumb_size > 2000000){
+          $message[] = 'image size is too large!';
+       }else{
+          $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ?");
+          $update_thumb->execute([$rename_thumb, $video_id]);
+          move_uploaded_file($thumb_tmp_name, $thumb_folder);
+          if($old_thumb != '' AND $old_thumb != $rename_thumb){
+             unlink('../uploaded_files/'.$old_thumb);
+          }
+       }
+    }
 
 }
 ?>
