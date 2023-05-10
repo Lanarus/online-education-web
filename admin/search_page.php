@@ -44,7 +44,21 @@ if(isset($_POST['delete_playlist'])){
  
     if($verify_playlist->rowCount() > 0){
 
+
+    $delete_playlist_thumb = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? LIMIT 1");
+    $delete_playlist_thumb->execute([$delete_id]);
+    $fetch_thumb = $delete_playlist_thumb->fetch(PDO::FETCH_ASSOC);
+    unlink('../uploaded_files/'.$fetch_thumb['thumb']);
+    $delete_bookmark = $conn->prepare("DELETE FROM `bookmark` WHERE playlist_id = ?");
+    $delete_bookmark->execute([$delete_id]);
+    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
+    $delete_playlist->execute([$delete_id]);
+    $message[] = 'playlist deleted!';
+    }else{
+      $message[] = 'playlist already deleted!';
     }
+
+ }
 
 
 ?>
