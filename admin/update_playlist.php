@@ -38,6 +38,20 @@ if(isset($_POST['submit'])){
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_folder = '../uploaded_files/'.$rename;
 
+    if(!empty($image)){
+        if($image_size > 2000000){
+           $message[] = 'image size is too large!';
+        }else{
+           $update_image = $conn->prepare("UPDATE `playlist` SET thumb = ? WHERE id = ?");
+           $update_image->execute([$rename, $get_id]);
+           move_uploaded_file($image_tmp_name, $image_folder);
+           if($old_image != '' AND $old_image != $rename){
+              unlink('../uploaded_files/'.$old_image);
+           }
+        }
+     } 
+  
+     $message[] = 'playlist updated!';
 } 
 
 ?>
