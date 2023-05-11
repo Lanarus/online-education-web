@@ -38,7 +38,16 @@
       <p>playlist description <span>*</span></p>
       <textarea name="description" class="box" required placeholder="write description" maxlength="1000" cols="30" rows="10"><?= $fetch_playlist['description']; ?></textarea>
       <p>playlist thumbnail <span>*</span></p>
-
+      <div class="thumb">
+         <span><?= $total_videos; ?></span>
+         <img src="../uploaded_files/<?= $fetch_playlist['thumb']; ?>" alt="">
+      </div>
+      <input type="file" name="image" accept="image/*" class="box">
+      <input type="submit" value="update playlist" name="submit" class="btn">
+      <div class="flex-btn">
+         <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
+         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">view playlist</a>
+      </div>
    </form>  
 
 
