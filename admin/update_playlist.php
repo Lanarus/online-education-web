@@ -24,7 +24,16 @@
 <section class="playlist-form">
 
    <h1 class="heading">update playlist</h1>
-
+   <?php
+         $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ?");
+         $select_playlist->execute([$get_id]);
+         if($select_playlist->rowCount() > 0){
+         while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
+            $playlist_id = $fetch_playlist['id'];
+            $count_videos = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+            $count_videos->execute([$playlist_id]);
+            $total_videos = $count_videos->rowCount();
+    ?>
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="old_image" value="<?= $fetch_playlist['thumb']; ?>">
       <p>playlist status <span>*</span></p>
@@ -49,7 +58,12 @@
          <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">view playlist</a>
       </div>
    </form>  
-
+   <?php
+      } 
+   }else{
+      echo '<p class="empty">no playlist added yet!</p>';
+   }
+   ?>
 
 </section>
 
