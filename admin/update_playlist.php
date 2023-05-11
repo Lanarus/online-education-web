@@ -16,6 +16,17 @@ if(isset($_GET['get_id'])){
    header('location:playlist.php');
 }
 
+if(isset($_POST['submit'])){
+
+    $title = $_POST['title'];
+    $title = filter_var($title, FILTER_SANITIZE_STRING);
+    $description = $_POST['description'];
+    $description = filter_var($description, FILTER_SANITIZE_STRING);
+    $status = $_POST['status'];
+    $status = filter_var($status, FILTER_SANITIZE_STRING);
+    
+} 
+
 ?>
 
 
