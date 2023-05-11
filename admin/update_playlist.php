@@ -25,7 +25,19 @@
 
    <h1 class="heading">update playlist</h1>
 
-   </section>
+   <form action="" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="old_image" value="<?= $fetch_playlist['thumb']; ?>">
+      <p>playlist status <span>*</span></p>
+      <select name="status" class="box" required>
+         <option value="<?= $fetch_playlist['status']; ?>" selected><?= $fetch_playlist['status']; ?></option>
+         <option value="active">active</option>
+         <option value="deactive">deactive</option>
+      </select>
+
+   </form>  
+
+
+</section>
 
 
 
