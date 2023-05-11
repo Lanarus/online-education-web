@@ -53,7 +53,20 @@ if(isset($_POST['submit'])){
   
      $message[] = 'playlist updated!';
 } 
-
+if(isset($_POST['delete'])){
+    $delete_id = $_POST['playlist_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+    $delete_playlist_thumb = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? LIMIT 1");
+    $delete_playlist_thumb->execute([$delete_id]);
+    $fetch_thumb = $delete_playlist_thumb->fetch(PDO::FETCH_ASSOC);
+    unlink('../uploaded_files/'.$fetch_thumb['thumb']);
+    $delete_bookmark = $conn->prepare("DELETE FROM `bookmark` WHERE playlist_id = ?");
+    $delete_bookmark->execute([$delete_id]);
+    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
+    $delete_playlist->execute([$delete_id]);
+    header('location:playlists.php');
+ }
+ 
 ?>
 
 
