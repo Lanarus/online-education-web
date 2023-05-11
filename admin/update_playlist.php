@@ -24,7 +24,20 @@ if(isset($_POST['submit'])){
     $description = filter_var($description, FILTER_SANITIZE_STRING);
     $status = $_POST['status'];
     $status = filter_var($status, FILTER_SANITIZE_STRING);
-    
+
+    $update_playlist = $conn->prepare("UPDATE `playlist` SET title = ?, description = ?, status = ? WHERE id = ?");
+    $update_playlist->execute([$title, $description, $status, $get_id]);
+
+    $old_image = $_POST['old_image'];
+    $old_image = filter_var($old_image, FILTER_SANITIZE_STRING);
+    $image = $_FILES['image']['name'];
+    $image = filter_var($image, FILTER_SANITIZE_STRING);
+    $ext = pathinfo($image, PATHINFO_EXTENSION);
+    $rename = unique_id().'.'.$ext;
+    $image_size = $_FILES['image']['size'];
+    $image_tmp_name = $_FILES['image']['tmp_name'];
+    $image_folder = '../uploaded_files/'.$rename;
+
 } 
 
 ?>
